@@ -6,50 +6,36 @@ import Item from './Item';
 
 const ListItems = ({ favoritePeople }) => {
     return (
-        <FlatList
-            data={favoritePeople}
-            renderItem={({ item }) => (
-                <Item item={item} />
-            )}
-            keyExtractor={(item, index) => index.toString()}
+        <SafeAreaView style={styles.list}>
+            {favoritePeople.length ?
+                <FlatList
+                    data={favoritePeople}
+                    renderItem={({ item }) => (
+                        <Item item={item} />
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
 
-            showsHorizontalScrollIndicator={false}
-            showsVerticalScrollIndicator={false}
-
-            style={styles.list}
-        />
+                    showsHorizontalScrollIndicator={false}
+                    showsVerticalScrollIndicator={false}
+                    style={styles.list}
+                />
+                :
+                <Text style={styles.empty}>You have no favorites yet.</Text>
+            }
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     list: {
-        alignSelf: 'stretch',
-    },
-    item: {
         flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: '#3a86ff',
-        padding: 10,
-        marginVertical: 8,
-        marginHorizontal: 16,
-        alignSelf: 'stretch',
-        marginBottom: 0,
-        borderRadius: 10
+        width: '100%',
+        padding: 10
     },
-    picture: {
-        width: 40,
-        height: 40,
-        resizeMode: 'cover',
-        borderRadius: 10,
-    },
-    title: {
-        fontSize: 18,
-        textAlign: 'center',
-        color: 'white',
-        fontWeight: '600',
-        marginLeft: 20
-    },
+    empty: {
+        color: 'black'
+
+    }
 });
 
 ListItems.propTypes = {

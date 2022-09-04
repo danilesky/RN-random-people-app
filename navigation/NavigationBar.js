@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { People } from '../screens/People';
 import { Favorites } from '../screens/Favorites';
-import { Image } from 'react-native';
+import { Image, SafeAreaView } from 'react-native';
 import {
     Ionicons,
     Entypo,
