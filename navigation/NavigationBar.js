@@ -12,12 +12,16 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-export const NavigationBar = () => {
+export const NavigationBar = ({ people }) => {
     return (
         <Tab.Navigator>
             <Tab.Screen
                 name="People"
-                component={People}
+                children={() => {
+                    return (
+                        <People people={people} />
+                    )
+                }}
             />
             <Tab.Screen
                 name="Favorites"

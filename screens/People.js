@@ -1,23 +1,15 @@
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import Profile from '../components/Profile';
 
-export const People = () => {
+export const People = ({ people }) => {
+
     return (
-        <View style={styles.container}>
-            <Text>Hello Simi </Text>
-            <Text>My Love</Text>
-            <StatusBar style="auto" />
-        </View>
+        <Profile people={people} />
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column'
-    },
+
 });
