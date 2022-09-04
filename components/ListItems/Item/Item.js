@@ -1,30 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { FlatList, StyleSheet, Text, View, SafeAreaView, Image } from 'react-native';
-import ListItems from '../components/ListItems';
 
-export const Favorites = ({ favoritePeople }) => {
-
+const Item = ({ item }) => {
     return (
-        <SafeAreaView style={styles.container}>
-            <ListItems favoritePeople={favoritePeople} />
-        </SafeAreaView>
+        <View style={styles.item}>
+            <Image
+                style={styles.picture}
+                source={{
+                    uri: item.picture.large,
+                }}
+            />
+            <Text style={styles.title}>{item.name.first}</Text>
+            <Text style={styles.title}>{item.name.last}</Text>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-    },
-    color: {
-        color: 'red'
-    },
-    list: {
-        alignSelf: 'stretch',
-    },
     item: {
         flex: 1,
         flexDirection: 'row',
@@ -51,3 +44,10 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
 });
+
+
+Item.propTypes = {
+
+}
+
+export default Item

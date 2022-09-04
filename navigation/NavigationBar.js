@@ -19,7 +19,7 @@ export const NavigationBar = ({ people, favoritePeople, setFavoritePeople }) => 
                 name="People"
                 children={() => {
                     return (
-                        <People people={people} favoritePeople={favoritePeople} setFavoritePeople={setFavoritePeople} />
+                        <People people={people} setFavoritePeople={setFavoritePeople} />
                     )
                 }}
             />
@@ -27,7 +27,7 @@ export const NavigationBar = ({ people, favoritePeople, setFavoritePeople }) => 
                 name="Favorites"
                 children={() => {
                     return (
-                        <Favorites />
+                        <Favorites favoritePeople={favoritePeople} />
                     )
                 }} />
         </Tab.Navigator>

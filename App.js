@@ -10,13 +10,13 @@ export default function App() {
 
   const favoriteHandler = (people) => {
     const newPeople = people
-    setFavoritePeople((previousPeople) => [...previousPeople, people])
+    setFavoritePeople((previousPeople) => [people, ...previousPeople])
     console.log(favoritePeople)
   }
 
   return (
     <NavigationContainer>
-      <NavigationBar people={people} setFavoritePeople={favoriteHandler} />
+      <NavigationBar favoritePeople={favoritePeople} people={people} setFavoritePeople={favoriteHandler} />
     </NavigationContainer>
   );
 }
