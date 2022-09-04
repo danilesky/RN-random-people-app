@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
-const Profile = ({ people }) => {
+const Profile = ({ people, setFavoritePeople }) => {
     const random = Math.floor(Math.random() * people.length)
+
+
     return (
         <View style={styles.container}>
             <Image
@@ -16,6 +18,7 @@ const Profile = ({ people }) => {
             <Text style={styles.title} >{people[random].name.first}</Text>
             <Text style={styles.age}>{people[random].registered.age} y.o.</Text>
             <Button
+                onPress={() => setFavoritePeople(people[random])}
                 title="Add to Favorite"
                 color="#841584"
                 accessibilityLabel="Adds this Human to Favorite"
