@@ -12,14 +12,17 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-export const NavigationBar = ({ people, favoritePeople, setFavoritePeople }) => {
+export const NavigationBar = ({ people, favoritePeople, setFavoritePeople, removeFavorite }) => {
+
+    const random = Math.floor(Math.random() * people.length)
+
     return (
         <Tab.Navigator>
             <Tab.Screen
                 name="People"
                 children={() => {
                     return (
-                        <People people={people} setFavoritePeople={setFavoritePeople} />
+                        <People people={people} setFavoritePeople={setFavoritePeople} random={random} />
                     )
                 }}
             />
@@ -27,7 +30,7 @@ export const NavigationBar = ({ people, favoritePeople, setFavoritePeople }) => 
                 name="Favorites"
                 children={() => {
                     return (
-                        <Favorites favoritePeople={favoritePeople} />
+                        <Favorites favoritePeople={favoritePeople} removeFavorite={removeFavorite} random={random} people={people} />
                     )
                 }} />
         </Tab.Navigator>

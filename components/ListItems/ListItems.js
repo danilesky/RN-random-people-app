@@ -4,20 +4,20 @@ import { FlatList, StyleSheet, Text, View, SafeAreaView, Image } from 'react-nat
 import Item from './Item';
 
 
-const ListItems = ({ favoritePeople }) => {
+const ListItems = ({ favoritePeople, removeFavorite, people, random }) => {
     return (
         <SafeAreaView style={styles.list}>
-            {favoritePeople.length ?
+            {favoritePeople.length > 0 ?
                 <FlatList
                     data={favoritePeople}
                     renderItem={({ item }) => (
-                        <Item item={item} />
+                        <Item item={item} removeFavorite={removeFavorite} people={people} random={random} />
                     )}
                     keyExtractor={(item, index) => index.toString()}
 
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}
-                    style={styles.list}
+                    style={styles.flatlist}
                 />
                 :
                 <Text style={styles.empty}>You have no favorites yet.</Text>
@@ -30,7 +30,13 @@ const styles = StyleSheet.create({
     list: {
         flex: 1,
         width: '100%',
-        padding: 10
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    flatlist: {
+        width: '100%',
+        padding: 10,
     },
     empty: {
         color: 'black'
