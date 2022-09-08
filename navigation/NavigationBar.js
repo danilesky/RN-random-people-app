@@ -12,7 +12,7 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-export const NavigationBar = ({ people, favoritePeople, setFavoritePeople, removeFavorite }) => {
+export const NavigationBar = ({ people, favoritePeople, setFavoritePeople, removeFavorite, removePeople }) => {
 
     const random = Math.floor(Math.random() * people.length)
 
@@ -22,7 +22,7 @@ export const NavigationBar = ({ people, favoritePeople, setFavoritePeople, remov
                 name="People"
                 children={() => {
                     return (
-                        <People people={people} setFavoritePeople={setFavoritePeople} random={random} />
+                        <People people={people} setFavoritePeople={setFavoritePeople} random={random} removePeople={removePeople} />
                     )
                 }}
             />

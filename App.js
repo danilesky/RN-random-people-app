@@ -17,9 +17,13 @@ export default function App() {
     setFavoritePeople((previousFavorites) => previousFavorites.filter(person => person.login.username !== currrentPerson.login.username))
   }
 
+  const removePeopleHandler = (currrentPerson) => {
+    setPeople((previousPeople) => previousPeople.filter(person => person.login.username !== currrentPerson.login.username))
+  }
+
   return (
     <NavigationContainer>
-      <NavigationBar favoritePeople={favoritePeople} people={people} setFavoritePeople={favoriteHandler} removeFavorite={removeFavoriteHandler} />
+      <NavigationBar favoritePeople={favoritePeople} people={people} setFavoritePeople={favoriteHandler} removeFavorite={removeFavoriteHandler} removePeople={removePeopleHandler} />
     </NavigationContainer>
   );
 }

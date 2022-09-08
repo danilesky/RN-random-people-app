@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 
-const Profile = ({ people, setFavoritePeople, favoritePeople, random }) => {
+const Profile = ({ people, setFavoritePeople, favoritePeople, random, removePeople }) => {
 
     return (
         <View style={styles.container}>
@@ -24,7 +24,7 @@ const Profile = ({ people, setFavoritePeople, favoritePeople, random }) => {
                         accessibilityLabel="Adds this Human to Favorite"
                     />
                     <Button
-                        onPress={() => setFavoritePeople(people[random])}
+                        onPress={() => removePeople(people[random])}
                         title="Next"
                         color="#841584"
                         accessibilityLabel="Skip this Person"
