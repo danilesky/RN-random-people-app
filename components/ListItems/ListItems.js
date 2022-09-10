@@ -4,14 +4,14 @@ import { FlatList, StyleSheet, Text, View, SafeAreaView, Image } from 'react-nat
 import Item from './Item';
 
 
-const ListItems = ({ favoritePeople, removeFavorite, people, random }) => {
+const ListItems = ({ favoritePeople, removeFavorite, people, random, setFavoritePeople, specialHandler }) => {
     return (
         <SafeAreaView style={styles.list}>
             {favoritePeople.length > 0 ?
                 <FlatList
                     data={favoritePeople}
                     renderItem={({ item }) => (
-                        <Item item={item} removeFavorite={removeFavorite} people={people} random={random} />
+                        <Item item={item} removeFavorite={removeFavorite} people={people} random={random} setFavoritePeople={setFavoritePeople} specialHandler={specialHandler} />
                     )}
                     keyExtractor={(item, index) => index.toString()}
 

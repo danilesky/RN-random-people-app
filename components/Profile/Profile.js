@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const Profile = ({ people, setFavoritePeople, favoritePeople, random, removePeople }) => {
 
