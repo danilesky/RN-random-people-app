@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: 'white',
         fontWeight: '600',
-        marginLeft: 20
+        marginLeft: 20,
     },
     button: {
         backgroundColor: '#ffa9a3',
@@ -84,16 +84,16 @@ const styles = StyleSheet.create({
         height: 30,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 10
+        borderRadius: 10,
     },
     button_star: {
-        marginRight: 10
+        marginRight: 10,
     },
     button_wrapper: {
         display: 'flex',
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
     }
 });
 

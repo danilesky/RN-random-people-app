@@ -17,9 +17,19 @@ export const NavigationBar = ({ people, favoritePeople, setFavoritePeople, remov
         <Tab.Navigator>
             <Tab.Screen
                 name="People"
-                options={{
-                    tabBarIcon: () => (<Ionicons name='people' size={28} color='grey' />),
-                }}
+                options={() => ({
+                    tabBarIcon: ({ focused }) => {
+                        let color = 'grey'
+
+                        if (focused) {
+                            color = '#3a86ff'
+                        }
+                        else {
+                            color = 'grey'
+                        }
+                        return <Ionicons name='people' size={28} color={color} />
+                    },
+                })}
                 children={() => {
                     return (
                         <People people={people} setFavoritePeople={setFavoritePeople} random={random} removePeople={removePeople} />
@@ -28,9 +38,19 @@ export const NavigationBar = ({ people, favoritePeople, setFavoritePeople, remov
             />
             <Tab.Screen
                 name="Favorites"
-                options={{
-                    tabBarIcon: () => (<MaterialIcons name='favorite' size={28} color='#3a86ff' />),
-                }}
+                options={() => ({
+                    tabBarIcon: ({ focused }) => {
+
+                        let color = 'grey'
+                        if (focused) {
+                            color = '#3a86ff'
+                        }
+                        else {
+                            color = 'grey'
+                        }
+                        return <MaterialIcons name='favorite' size={28} color={color} />
+                    },
+                })}
                 children={() => {
                     return (
                         <Favorites favoritePeople={favoritePeople} removeFavorite={removeFavorite} random={random} people={people} setFavoritePeople={setFavoritePeople} specialHandler={specialHandler} />
