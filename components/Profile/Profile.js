@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, TouchableHighlight } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const Profile = ({ people, setFavoritePeople, favoritePeople, random, removePeople }) => {
@@ -18,18 +18,20 @@ const Profile = ({ people, setFavoritePeople, favoritePeople, random, removePeop
                     />
                     <Text style={styles.title} >{people[random].name.first}</Text>
                     <Text style={styles.age}>{people[random].registered.age} y.o.</Text>
-                    <Button
-                        onPress={() => setFavoritePeople(people[random])}
-                        title="Add to Favorite"
-                        color="#841584"
-                        accessibilityLabel="Adds this Human to Favorite"
-                    />
-                    <Button
-                        onPress={() => removePeople(people[random])}
-                        title="Next"
-                        color="#841584"
-                        accessibilityLabel="Skip this Person"
-                    />
+                    <View style={styles.buttons_wrapper}>
+                        <TouchableHighlight style={styles.add_button_wrapper} onPress={() => setFavoritePeople(people[random])} underlayColor='none'>
+                            <View style={styles.add_button}>
+                                <Ionicons name='heart-circle-outline' size={28} color='black' style={styles.add_button_icon} />
+                                <Text style={styles.add_button_text}>Add to Favorite</Text>
+                            </View>
+                        </TouchableHighlight>
+                        <TouchableHighlight style={styles.next_button_wrapper} onPress={() => removePeople(people[random])} underlayColor='none'>
+                            <View style={styles.next_button}>
+                                <Ionicons name='arrow-forward-outline' size={28} color='black' style={styles.next_button_icon} />
+                                <Text style={styles.next_button_text}>Next</Text>
+                            </View>
+                        </TouchableHighlight>
+                    </View>
                     <StatusBar style="auto" />
                 </View>
             }
@@ -60,6 +62,41 @@ const styles = StyleSheet.create({
     age: {
         fontSize: 20,
         fontWeight: '400',
+    },
+    add_button_wrapper: {
+        marginRight: 15
+    },
+    add_button: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#3a86ff',
+        borderRadius: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+    },
+    add_button_text: {
+        color: 'white',
+        marginLeft: 5,
+        fontWeight: '600'
+    },
+    add_button_icon: {
+        color: 'white'
+    },
+    next_button_wrapper: {
+    },
+    next_button: {
+        flexDirection: 'row-reverse',
+        alignItems: 'center',
+    },
+    next_button_text: {
+        fontSize: 20,
+        fontWeight: '700',
+        marginRight: 5,
+    },
+    buttons_wrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: '20%',
     }
 });
 
